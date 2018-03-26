@@ -30,7 +30,7 @@ gulp.task('images', function () {
         .pipe(gulp.dest(images.out));
 });
 
-// default task
-gulp.task('default', function(){
+// default task , those task run simultaniously, so defining ['clean', 'images'] will not work
+gulp.task('default', ['images'], function(){
 
 });
