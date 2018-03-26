@@ -1,5 +1,5 @@
 {
-  "name": "SOS GULP Plugin imagemin",
+  "name": "sos-gulp-imagemin",
   "version": "1.0.0",
   "description": "This is project for create gulp-imagemin plugin",
   "main": "index.js",
