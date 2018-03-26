@@ -7,15 +7,20 @@ var gulp = require('gulp'),
     // compress image files
     imagemin = require('gulp-imagemin'),
     // clean directory
-    del = require('del');
+    del = require('del'),
+    pkg = require('./package.json');
 
 // file location
-var source = 'source/',
+var devBuild = ((process.env.NODE_ENV || 'development').trim().toLowerCase() != 'production'),
+    source = 'source/',
     dest = 'dest/',
     images = {
         in: source+'images/*.*',
         out: dest+'images/'
     };
+
+// show build type
+console.log(pkg.name + ' ' + pkg.version + ', ' + (devBuild ? 'development' : 'production') + ' build');
 
 // clean
 gulp.task('clean', function(){
