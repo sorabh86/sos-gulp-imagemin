@@ -1,5 +1,5 @@
 {
-  "name": "gulp imagemin",
+  "name": "SOS GULP Plugin imagemin",
   "version": "1.0.0",
   "description": "This is project for create gulp-imagemin plugin",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sorabh86/gulp-imagemin.git"
+    "url": "git+https://github.com/sorabh86/sos-gulp-imagemin.git"
   },
   "keywords": [
     "gulp",
@@ -17,10 +17,11 @@
   "author": "sorabh sharma",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sorabh86/gulp-imagemin/issues"
+    "url": "https://github.com/sorabh86/sos-gulp-imagemin/issues"
   },
-  "homepage": "https://github.com/sorabh86/gulp-imagemin#readme",
+  "homepage": "https://github.com/sorabh86/sos-gulp-imagemin#readme",
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-newer": "^1.4.0"
