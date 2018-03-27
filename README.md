@@ -7,6 +7,8 @@ This is a Gulp built for Image Compression and Others useful tasks.
 - Clean the folder by [del](https://www.npmjs.com/package/del) 
 - Combine HTML templates together by [gulp-preprocess](https://www.npmjs.com/package/gulp-preprocess)
 - Minified HTML on distribution by [gulp-htmlclean](https://www.npmjs.com/package/gulp-htmlclean)
+- Check size of two files by [gulp-size](https://www.npmjs.com/package/gulp-size)
+- Compile scss files to css by [gulp-sass](https://www.npmjs.com/package/gulp-sass)
 
 ## Environment Variable
 -- linux   

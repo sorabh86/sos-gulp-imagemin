@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     preprocess = require('gulp-preprocess'),
     // compress image files
     imagemin = require('gulp-imagemin'),
+    // check size
+    // size = require('gulp-size'),
     // clean directory
     del = require('del'),
     pkg = require('./package.json');
@@ -45,7 +47,10 @@ gulp.task('clean', function(){
 gulp.task('html', function() {
     var page =  gulp.src(html.in).pipe(preprocess({ context:html.context }));
     if(!devBuild) {
-        page = page.pipe(htmlclean());
+        page = page
+            // .pipe(size({ title: 'HTML in' }))
+            .pipe(htmlclean())
+            // .pipe(size({ title: 'HTML out' }));
     }
     return page.pipe(gulp.dest(html.out));
 });
