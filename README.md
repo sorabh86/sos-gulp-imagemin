@@ -5,7 +5,8 @@ This is a Gulp built for Image Compression and Others useful tasks.
 - Check for existence of image or any file by [gulp-newer](https://www.npmjs.com/package/gulp-newer)
 - Compress image files by [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)  
 - Clean the folder by [del](https://www.npmjs.com/package/del) 
-- Combine html templates together by [gulp-preprocess](https://www.npmjs.com/package/gulp-preprocess)
+- Combine HTML templates together by [gulp-preprocess](https://www.npmjs.com/package/gulp-preprocess)
+- Minified HTML on distribution by [gulp-htmlclean](https://www.npmjs.com/package/gulp-htmlclean)
 
 ## Environment Variable
 -- linux   

@@ -4,6 +4,8 @@
 var gulp = require('gulp'),
     // only pipe throw those file not found in folder
     newer = require('gulp-newer'),
+    // minified html
+    htmlclean = require('gulp-htmlclean'),
     // for combining different section of html template to built one master file
     preprocess = require('gulp-preprocess'),
     // compress image files
@@ -41,9 +43,11 @@ gulp.task('clean', function(){
 
 // built HTML files
 gulp.task('html', function() {
-    return gulp.src(html.in)
-        .pipe(preprocess({ context:html.context }))
-        .pipe(gulp.dest(html.out));
+    var page =  gulp.src(html.in).pipe(preprocess({ context:html.context }));
+    if(!devBuild) {
+        page = page.pipe(htmlclean());
+    }
+    return page.pipe(gulp.dest(html.out));
 });
 
 // manage images
