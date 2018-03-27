@@ -24,6 +24,7 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-imagemin": "^4.1.0",
-    "gulp-newer": "^1.4.0"
+    "gulp-newer": "^1.4.0",
+    "gulp-preprocess": "^2.0.0"
   }
 }

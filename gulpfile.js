@@ -4,6 +4,8 @@
 var gulp = require('gulp'),
     // only pipe throw those file not found in folder
     newer = require('gulp-newer'),
+    // for combining different section of html template to built one master file
+    preprocess = require('gulp-preprocess'),
     // compress image files
     imagemin = require('gulp-imagemin'),
     // clean directory
@@ -14,6 +16,16 @@ var gulp = require('gulp'),
 var devBuild = ((process.env.NODE_ENV || 'development').trim().toLowerCase() != 'production'),
     source = 'source/',
     dest = 'dest/',
+    html = {
+        in : source + '*.html',
+        watch : [source + '*.html', source + 'templates/**/*'],
+        out : dest,
+        context : {
+            devBuild : devBuild,
+            author : pkg.author,
+            version : pkg.version
+        }
+    },
     images = {
         in: source+'images/*.*',
         out: dest+'images/'
@@ -22,9 +34,16 @@ var devBuild = ((process.env.NODE_ENV || 'development').trim().toLowerCase() != 
 // show build type
 console.log(pkg.name + ' ' + pkg.version + ', ' + (devBuild ? 'development' : 'production') + ' build');
 
-// clean
+// clean built
 gulp.task('clean', function(){
     del([dest+'*']);
+});
+
+// built HTML files
+gulp.task('html', function() {
+    return gulp.src(html.in)
+        .pipe(preprocess({ context:html.context }))
+        .pipe(gulp.dest(html.out));
 });
 
 // manage images
@@ -36,6 +55,11 @@ gulp.task('images', function () {
 });
 
 // default task , those task run simultaniously, so defining ['clean', 'images'] will not work
-gulp.task('default', ['images'], function(){
+gulp.task('default', ['html', 'images'], function(){
 
+    // html changes
+    gulp.watch(html.watch, ['html']);
+
+    // compress image
+    gulp.watch(images.in, ['images']);
 });
